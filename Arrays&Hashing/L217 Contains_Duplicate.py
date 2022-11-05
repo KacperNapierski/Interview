@@ -7,3 +7,4 @@ class Solution:
                 return True
             else:
                 hashset.add(num)
+        return False
