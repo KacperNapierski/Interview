@@ -15,22 +15,6 @@ class LinkedList:
         while node is not None:
             yield node
             node = node.next
-    
-    #def remove_node(self, target) -> None:
-    #    if self.head is None:
-    #        raise Exception("THERE IS NO LIST")
-    #    elif self.head == target:
-    #        self.head == self.head.next
-    #        return
-    #    
-    #    previous_node = self.head
-    #    for node in self:
-    #        if node.data == target:
-    #            previous_node.next = node.next
-    #            return
-    #        
-    #    raise Exception(f"NO {target} IN THE LIST")
-    
 
 class Node:
     def __init__(self, data) -> None:
@@ -70,7 +54,6 @@ def remove_duplicates(llist:LinkedList):
     if llist.head is None:
         raise Exception("THERE IS NO LIST")
     
-    #hashset.add(llist.head)
     previous_node = llist.head
     for node in llist:
         if node.data in hashset:
@@ -82,8 +65,7 @@ def remove_duplicates(llist:LinkedList):
         print(hashset)
         print('###')
 
-
-    #node = llist.head    
+  
 
 if __name__ == "__main__":
     remove_duplicates(llist)
