@@ -26,7 +26,7 @@ class Node:
 
 
 
-##exampl program input
+##example program input
 llist = LinkedList()
 node1 = Node(1)
 llist.head = node1
@@ -46,8 +46,8 @@ node8 = Node(5)
 node7.next = node8
 
 
-
-def remove_duplicates(llist:LinkedList):
+### dictionary + dunder
+def remove_duplicates_dict(llist:LinkedList):
     hashset = set()
     print(llist)
 
@@ -61,11 +61,28 @@ def remove_duplicates(llist:LinkedList):
         else:
             hashset.add(node.data)
             previous_node = node
-        print(llist)
-        print(hashset)
-        print('###')
 
-  
+    return llist
+
+### 2 pointers + manual
+def remove_duplicates(llist:LinkedList):
+    node_p1 = llist.head
+    node_p2 = llist.head
+
+    try:
+        while node_p1.next is not None:
+            node_p2 = node_p1
+            while node_p2.next is not None:
+                if node_p2.next.data == node_p1.data:
+                    node_p2.next = node_p2.next.next
+                node_p2 = node_p2.next
+            node_p1 = node_p1.next
+    except:
+        print("finished looping")
+    return llist
+    
 
 if __name__ == "__main__":
-    remove_duplicates(llist)
+    print(remove_duplicates_dict(llist))
+    print('#############')
+    print(remove_duplicates(llist))
