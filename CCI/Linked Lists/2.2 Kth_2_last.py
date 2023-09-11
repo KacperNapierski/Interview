@@ -71,9 +71,23 @@ def kth_2_last_element(llist,k):
             return node.data
         count -= 1
         node = node.next
-    
 
+##2 pointers
+def kth_element_pointers(llist,k):
+    node_p1 = llist.head
+    node_p2 = llist.head
+
+    for _ in range(k):
+        if node_p2.data == None: return 0
+        node_p2 = node_p2.next
+
+    while node_p2 is not None:
+        node_p2 = node_p2.next
+        node_p1 = node_p1.next
+
+    return node_p1.data
 
 if __name__ == '__main__':
     print(kth_2_last_element_dunder(llist,k))
     print(kth_2_last_element(llist,k))
+    print(kth_element_pointers(llist,k))
