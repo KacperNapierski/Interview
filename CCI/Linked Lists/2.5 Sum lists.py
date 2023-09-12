@@ -55,7 +55,7 @@ def translate_to_list(number, output_list):
     node = Node(0)
     output_list.head = node
     for char in reversed(number):
-        node.next = Node(char)
+        node.next = Node(int(char))
         node = node.next
     
     output_list.head = output_list.head.next
