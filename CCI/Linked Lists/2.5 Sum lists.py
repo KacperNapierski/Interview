@@ -71,7 +71,7 @@ def sum_lists_back(llist_1, llist_2):
     return translate_to_list(sum, output)
 
 
-## all linked list  iterated simultaniously TODO
+## all linked list  iterated simultaniously
 def sum_list(llist_1, llist_2):
     output = LinkedList()
     node_output = Node(0)
@@ -83,9 +83,9 @@ def sum_list(llist_1, llist_2):
     while True:
         if node1 is None:
             node1 = Node(0)
-        elif node2 is None:
+        if node2 is None:
             node2 = Node(0)
-        elif node1.data == 0 and node2.data == 0:
+        if node1.data == 0 and node2.data == 0:
             break
 
         temp = node1.data + node2.data
@@ -93,13 +93,15 @@ def sum_list(llist_1, llist_2):
             value = temp % 10
             node_output.next = Node(value + value_next)
             value_next = temp // 10
-        
-
+        else:
+            node_output.next = Node(temp+value_next)
+            value_next = 0
+            
         node_output = node_output.next
         node1 = node1.next
         node2 = node2.next
-        print(output)
 
+    output.head =  output.head.next
     return output
 
 
